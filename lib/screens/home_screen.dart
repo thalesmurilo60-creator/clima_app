@@ -68,7 +68,7 @@ class HomeScreen extends StatelessWidget {
                 padding: EdgeInsets.all(12),
                 child: Column(
                   children: [
-                    Text("Previsão dos Próximos Dias"),
+                    Text("Previsão dos Próximos dias"),
 
                     SizedBox(height: 20),
 
