@@ -1,8 +1,14 @@
 import 'package:flutter/material.dart';
 
 class AppTheme {
-  static ThemeData tema = ThemeData(
-    colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
-    useMaterial3: true,
+  static final ThemeData tema = ThemeData(
+    primarySwatch: Colors.blue,
+    scaffoldBackgroundColor: Colors.white,
+
+    appBarTheme: const AppBarTheme(
+      centerTitle: true,
+      backgroundColor: Color.fromARGB(255, 3, 78, 139),
+      foregroundColor: Colors.white,
+    ),
   );
 }

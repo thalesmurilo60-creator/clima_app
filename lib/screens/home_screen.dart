@@ -15,18 +15,21 @@ class HomeScreen extends StatelessWidget {
       temperatura: 37.5,
       condicao: "Ensolarado",
       icone: Icons.wb_sunny,
+      corIcone: Colors.orangeAccent,
     ),
     Weather(
       dia: "Terça-feira",
       temperatura: 32.2,
       condicao: "Ensolarado",
       icone: Icons.wb_sunny,
+      corIcone: Colors.orangeAccent,
     ),
     Weather(
       dia: "Quarta-feira",
       temperatura: 28.6,
       condicao: "Nublado",
       icone: Icons.cloud,
+      corIcone: Colors.white38,
     ),
   ];
 
@@ -35,61 +38,107 @@ class HomeScreen extends StatelessWidget {
     temperatura: 34.8,
     condicao: "Ensolarado",
     icone: Icons.wb_sunny,
+    corIcone: Colors.orangeAccent,
   );
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Meu Aplicativo")),
-      body: SingleChildScrollView(
-        child: Center(
-          child: Column(
-            children: [
-              WeatherHeader(
-                titulo: "Previsão Do Tempo",
-                cidade: "Cuiabá, Mato Grosso",
-                hoje: "Hoje",
-              ),
+      appBar: AppBar(title: Text("App De Previsões Climaticas")),
 
-              SizedBox(height: 20),
+      body: Container(
+        decoration: const BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+            colors: [Color(0xFF3B82F6), Color(0xFF1E40AF)],
+          ),
+        ),
 
-              CurrentWeather(
-                temperatura: hoje.temperatura,
-                condicao: "Ensolarado",
-              ),
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.all(16),
 
-              SizedBox(height: 20),
+            child: Column(
+              children: [
+                WeatherHeader(
+                  titulo: "Previsão Do Tempo",
+                  cidade: "Cuiabá, Mato Grosso",
+                  hoje: "Hoje",
+                ),
 
-              WeatherMetric(titulo: "Umidade", valor: "78%"),
+                const SizedBox(height: 20),
 
-              SizedBox(height: 20),
+                CurrentWeather(
+                  temperatura: hoje.temperatura,
+                  condicao: hoje.condicao,
+                  sensacaoTermica: 36,
+                ),
 
-              Padding(
-                padding: EdgeInsets.all(12),
-                child: Column(
+                const SizedBox(height: 20),
+
+                // MÉTRICAS
+                Row(
                   children: [
-                    Text("Previsão dos Próximos dias"),
+                    Expanded(
+                      child: WeatherMetric(titulo: "Umidade", valor: "78%"),
+                    ),
 
-                    SizedBox(height: 20),
+                    const SizedBox(width: 10),
 
-                    Row(
-                      children: [
-                        ...previsoes.map(
-                          (previsao) => Expanded(
-                            child: ForecastCard(
-                              dia: previsao.dia,
-                              temperatura: previsao.temperatura,
-                              icone: previsao.icone,
-                              condicao: previsao.condicao,
-                            ),
-                          ),
-                        ),
-                      ],
+                    Expanded(
+                      child: WeatherMetric(titulo: "Vento", valor: "9 km/h"),
+                    ),
+
+                    const SizedBox(width: 10),
+
+                    Expanded(
+                      child: WeatherMetric(titulo: "Chuva", valor: "35%"),
                     ),
                   ],
                 ),
-              ),
-            ],
+
+                const SizedBox(height: 20),
+
+                // PREVISÃO DOS PRÓXIMOS DIAS
+                Padding(
+                  padding: const EdgeInsets.all(12),
+
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+
+                    children: [
+                      const Text(
+                        "Previsão dos Próximos Dias",
+                        style: TextStyle(
+                          fontSize: 22,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                        ),
+                      ),
+
+                      const SizedBox(height: 20),
+
+                      Row(
+                        children: [
+                          ...previsoes.map(
+                            (previsao) => Expanded(
+                              child: ForecastCard(
+                                dia: previsao.dia,
+                                temperatura: previsao.temperatura,
+                                icone: previsao.icone,
+                                condicao: previsao.condicao,
+                                corIcone: previsao.corIcone,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),
