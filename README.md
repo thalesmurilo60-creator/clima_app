@@ -1,17 +1,56 @@
-# clima_app
+# Clima App
 
-A new Flutter project.
+Aplicativo de previsão do tempo desenvolvido em flutter como projeto de estudo.
 
-## Getting Started
+O objetivo é criar uma interface de clima simples, organizada e responsiva, apresentando informações como temperatura atual,
+sensação térmica, umidade, vento, possibilidade de chuva e previsão para os próximos dias.
 
-This project is a starting point for a Flutter application.
+## Sobre O Projeto
 
-A few resources to get you started if this is your first Flutter project:
+O aplicativo apresenta:
 
-- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
-- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
+- Localização atual exibida no cabeçalho;
+- Temperatura atual;
+- Condição do tempo;
+- Sensação termica;
+- Umidade;
+- Velocidade do vento;
+- Possibilidade de chuva;
+- Previsão para os próximos dias;
+- ícones diferentes para cada condição clímatica;
+- Interfaces adaptada para o formato de tela de celular.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Tecnologias utilizadas
+
+- Flutter;
+- Dart;
+- Material Design;
+
+## Dependências e packages
+
+O projeto utiliza principalmente os recursos nativos do Flutter.
+
+### Dependências Principais
+
+- `flutter/material.dart` - utilizando para construção da interface e componentes visuais.
+- `flutter_test` - utilizado para testes do aplicativo.
+
+Não foram utilizadas APIs externas ou packages adicionais para obter dados meteorológicos.
+
+## Estrutura do projeto
+
+O projeto foi organizado separando responsabilidades entre telas, widgets e modelos.
+
+lib/
+├── main.dart
+├── models/
+│ └── weather.dart
+├── screens/
+│ └── home_screens.dart
+├── theme/
+│ └── app_theme.dart
+└── widgets/
+├── weather_header.dart
+├── current_weather.dart
+├── weather_metric.dart
+└── forecast_card.dart
