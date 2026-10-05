@@ -16,25 +16,32 @@ class WeatherHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Text(
-          titulo,
-          style: TextStyle(
-            fontSize: 32,
-            fontWeight: FontWeight.bold,
-          ), // fecha TextStyle
-        ), // fecha Text
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            // Lado esquerdo
+            Row(
+              children: [
+                const Icon(
+                  Icons.location_on_outlined,
+                  color: Colors.white,
+                  size: 18,
+                ),
 
-        Text(
-          cidade,
-          style: TextStyle(
-            fontSize: 30,
-            fontWeight: FontWeight.bold,
-          ), // fecha TextStyle
+                const SizedBox(width: 5),
+
+                Text(
+                  cidade,
+                  style: const TextStyle(
+                    color: Colors.white,
+                    fontSize: 14,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+              ],
+            ),
+          ],
         ),
-        Text(
-          hoje,
-          style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
-        ), // fecha Text
       ],
     );
   }

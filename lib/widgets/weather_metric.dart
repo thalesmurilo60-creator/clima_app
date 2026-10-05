@@ -9,8 +9,8 @@ class WeatherMetric extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 90,
-      padding: const EdgeInsets.all(10),
+      height: 75,
+      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 6),
       decoration: BoxDecoration(
         color: Colors.white.withValues(alpha: 0.15),
         borderRadius: BorderRadius.circular(14),
@@ -22,17 +22,17 @@ class WeatherMetric extends StatelessWidget {
           Text(
             valor,
             style: const TextStyle(
-              fontSize: 20,
+              fontSize: 18,
               fontWeight: FontWeight.bold,
               color: Colors.white,
             ),
           ),
 
-          const SizedBox(height: 4),
+          const SizedBox(height: 3),
 
           Text(
             titulo,
-            style: const TextStyle(fontSize: 13, color: Colors.white70),
+            style: const TextStyle(fontSize: 11, color: Colors.white70),
           ),
         ],
       ),
